@@ -3,20 +3,33 @@
 
 using namespace std;
 
-mylist::mylist()
+mylist::mylist(int val)
 {
-  head=NULL;
-  size=0;
+  node * temp = new node;
+  temp->value=val;
+  temp->id=1;
+  temp->next=temp;
+  temp->prev=temp;
+  head.refer=temp;
+  tail.refer=temp;
+  size=1;
 }
 mylist::~mylist() {};
-void mylist::showContent()
+void mylist::showContent(iter head)
 {
+
+  iter current=head;
+
   cout<<"Zawartosc listy:"<<endl;
   cout<<"---------------------------"<<endl;
-
+  for (int i=0; i<size; i++)
+  {
+    cout << "Id:\t" << current.refer->id << "\nLiczba:\t" << current.refer->value << "\n\n";
+    current.refer=current.refer->next;
+  }
   cout<<"---------------------------"<<endl;
 }
-void mylist::addAtFront(int newNode)
+/*void mylist::addAtFront(int newNode)
 {
   node * temp = new node;
   temp->value=newNode;
@@ -56,4 +69,4 @@ mylist::node::ostream& operator<< (ostream &out, node const& ex)
 {
   out << ex.id << "   " << ex.value << "   " << ex.access;
   return out;
-}
+}*/

@@ -13,25 +13,26 @@ class mylist
         int access;
         node * next;
         node * prev;
-        friend std::ostream& operator<< (std::ostream&,node const&);
     };
-
-    mylist(); //constructor
+    class iter
+    {
+    public:
+      node * refer;
+      iter next(iter it);
+    };
+    mylist(int val); //constructor
     ~mylist(); //destructor
-    void showContent();
-    void addAtFront(int newNode);
-    void addAtBack(int newNode);
-    void deleteNode();
-    void getNode();
-    void copyNode();
-    void removeDuplicate();
-
-
-
-
-  private:
-    node * head;
-    //node * tail;
+    void showContent(iter head);
+    iter addNode(iter it, int newNode);
+    //void addAtBack(int newNode);
+    void deleteNode(iter it);
+    void getNode(int val);
+   // void copyNode();
+   // void removeDuplicate();
+    iter begin();
+    iter end();
+    iter head;
+    iter tail;
     int size;
 };
 
