@@ -11,8 +11,8 @@ class mylist
         int value;
         int id;
         int access;
-        node * nxt;
-        node * prv;
+        node * next;
+        node * prev;
     };
 
     mylist(); //constructor
@@ -26,7 +26,7 @@ class mylist
 
   private:
     node * head;
-    node * tail;
+    //node * tail;
     int size;
 };
 
