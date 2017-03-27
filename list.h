@@ -23,10 +23,10 @@ class mylist
     mylist(int val); //constructor
     ~mylist(); //destructor
     void showContent(iter head);
-    iter addNode(iter it, int newNode);
+    iter getNode(int val);
+    iter addAfter(iter it, int newNode);
     //void addAtBack(int newNode);
     void deleteNode(iter it);
-    void getNode(int val);
    // void copyNode();
    // void removeDuplicate();
     iter begin();

@@ -14,10 +14,11 @@ mylist::mylist(int val)
   tail.refer=temp;
   size=1;
 }
+
 mylist::~mylist() {};
+
 void mylist::showContent(iter head)
 {
-
   iter current=head;
 
   cout<<"Zawartosc listy:"<<endl;
@@ -29,37 +30,34 @@ void mylist::showContent(iter head)
   }
   cout<<"---------------------------"<<endl;
 }
-/*void mylist::addAtFront(int newNode)
+
+mylist::iter mylist::getNode(int val)
 {
-  node * temp = new node;
-  temp->value=newNode;
-  temp->access=0;
-  temp->id=1;
-  if (size==0)
+  iter it = head;
+  for (int i=0; i<size; i++)
   {
-    head=temp;
-    head->next=head;
-    head->prev=head;
-    size=1;
+    int x = it.refer->value;
+    if (x==val) break;
+    else it.refer = it.refer->next;
   }
-  else if (size==1)
-  {
-    head->prev=temp;
-    temp->next=head;
-    head->next=temp;
-    temp->prev=head;
-    head=temp;
-    size=2;
-  }
-  else
-  {
-    head->prev=temp;
-    temp->next=head;
-    temp->prev=head->prev;
-    head=temp;
-  }
+  return it;
 };
-void mylist::addAtBack(int newNode){};
+mylist::iter mylist::addAfter(iter it, int newNode)
+{
+  node * temp1 = it.refer;
+  node * temp2 = new node;
+  node * temp3 = temp1->next;
+  temp2->id=2;
+  temp2->value=newNode;
+  temp2->next=temp3;
+  temp2->prev=temp1;
+  temp3->prev=temp2;
+  temp1->next=temp2;
+  if (temp2->next==temp2) tail.refer=temp2; //coment
+  size++;
+  return it;
+};
+/*void mylist::addAtBack(int newNode){};
 void mylist::deleteNode(){};
 void mylist::getNode(){};
 void mylist::copyNode(){};
