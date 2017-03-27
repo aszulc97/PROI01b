@@ -9,6 +9,13 @@ mylist::mylist()
   size=0;
 }
 mylist::~mylist() {};
+void mylist::showContent()
+{
+  cout<<"Zawartosc listy:"<<endl;
+  cout<<"---------------------------"<<endl;
+
+  cout<<"---------------------------"<<endl;
+}
 void mylist::addAtFront(int newNode)
 {
   node * temp = new node;
@@ -22,7 +29,7 @@ void mylist::addAtFront(int newNode)
     head->prev=head;
     size=1;
   }
-  else if (size=1)
+  else if (size==1)
   {
     head->prev=temp;
     temp->next=head;
@@ -45,3 +52,8 @@ void mylist::getNode(){};
 void mylist::copyNode(){};
 void mylist::removeDuplicate(){};
 
+mylist::node::ostream& operator<< (ostream &out, node const& ex)
+{
+  out << ex.id << "   " << ex.value << "   " << ex.access;
+  return out;
+}

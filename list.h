@@ -13,16 +13,21 @@ class mylist
         int access;
         node * next;
         node * prev;
+        friend std::ostream& operator<< (std::ostream&,node const&);
     };
 
     mylist(); //constructor
     ~mylist(); //destructor
+    void showContent();
     void addAtFront(int newNode);
     void addAtBack(int newNode);
     void deleteNode();
     void getNode();
     void copyNode();
     void removeDuplicate();
+
+
+
 
   private:
     node * head;
