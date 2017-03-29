@@ -42,6 +42,18 @@ mylist::iter mylist::getNode(int val)
   }
   return it;
 };
+mylist::iter mylist::addAtFront(int newNode)
+{
+  node * temp2 = new node;
+  node * temp3 = head.refer;
+  temp2->id=2;
+  temp2->value=newNode;
+  temp2->next=temp3;
+  temp2->prev=temp2;
+  temp3->prev=temp2;
+  head.refer=temp2;
+  size++;
+}
 mylist::iter mylist::addAfter(iter it, int newNode)
 {
   node * temp1 = it.refer;

@@ -24,6 +24,7 @@ class mylist
     ~mylist(); //destructor
     void showContent(iter head);
     iter getNode(int val);
+    iter addAtFront(int newNode);
     iter addAfter(iter it, int newNode);
     //void addAtBack(int newNode);
     void deleteNode(iter it);

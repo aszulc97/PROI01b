@@ -49,6 +49,7 @@ int main()
             if (key=='t')
             {
               trig=1;
+              list1.addAtFront(newValue);
             }
             else if (key=='n')
             {
@@ -62,14 +63,14 @@ int main()
             cout<<key;
           }
         }break;
-   // case 2: removeElement(); break;
-   // case 3: getElement(); break;
-   // case 4: sumOfTwo(); break;
-  //  case 5: differenceOfTwo(); break;
-  //  case 6: copyElement(); break;
-  //  case 7: removeDuplicates(); break;
-  //  case 8: size(); break;
-  //  case 9: comparisonOfTwo(); break;
+   // case '2': removeElement(); break;
+   // case '3': getElement(); break;
+   // case '4': sumOfTwo(); break;
+  //  case '5': differenceOfTwo(); break;
+  //  case '6': copyElement(); break;
+  //  case '7': removeDuplicates(); break;
+  //  case '8': size(); break;
+  //  case '9': comparisonOfTwo(); break;
       case 'q':break;
       default: cout<<"Sprobuj ponownie"; break;
     }
