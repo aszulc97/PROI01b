@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <windows.h>
 #include "list.h"
 using namespace std;
 
@@ -26,7 +27,7 @@ int main()
     cout<<"5. Roznica dwoch list"<<endl;
     cout<<"6. Skopiuj element"<<endl;
     cout<<"7. Sprawdz rozmiar listy"<<endl;
-    cout<<"8. Porownaj dwie listy"<<endl;
+    cout<<"8. Sprawdz rozmiar listy"<<endl;
     cout<<"Wcisnij q, aby zakonczyc"<<endl;
     cout<<"--------------------"<<endl;
     cout<<"Twoj wybor: ";
@@ -43,7 +44,7 @@ int main()
           {
             cout<<"Podaj wartosc nowego elementu: ";
             cin>>newValue;
-            cout<<"Chcesz wstawic nowy element na poczatek listy? [t/n]"<<endl;
+            cout<<"Chcesz wstawic nowy element na poczatek listy? [t/n] ";
             cin>>key;
             key=tolower(key);
             if (key=='t')
@@ -54,7 +55,7 @@ int main()
             else if (key=='n')
             {
               trig=1;
-              cout<<"Podaj wartoœæ elementu, ZA ktorym chcesz wstawic nowy element"<<endl;
+              cout<<"Podaj wartoœæ elementu, ZA ktorym chcesz wstawic nowy element: ";
               cin>>chosenValue;
               it1=list1.getNode(chosenValue);
               list1.addAfter(it1,newValue);
@@ -63,13 +64,25 @@ int main()
             cout<<key;
           }
         }break;
-   // case '2': removeElement(); break;
+      case '2':
+        {
+          int chosenValue;
+          mylist::iter it2;
+          cout<<"Podaj wartosc elementu, ktory chcesz usunac: "; //obs³uga blêdów!
+          cin>>chosenValue;
+          it2=list1.getNode(chosenValue);
+          list1.deleteNode(it2);
+        }break;
    // case '3': getElement(); break;
    // case '4': sumOfTwo(); break;
   //  case '5': differenceOfTwo(); break;
   //  case '6': copyElement(); break;
   //  case '7': removeDuplicates(); break;
-  //  case '8': size(); break;
+      case '8':
+        {
+          cout<<list1.size;
+          Sleep(1000);
+        }break;
   //  case '9': comparisonOfTwo(); break;
       case 'q':break;
       default: cout<<"Sprobuj ponownie"; break;

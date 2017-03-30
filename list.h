@@ -26,8 +26,7 @@ class mylist
     iter getNode(int val);
     iter addAtFront(int newNode);
     iter addAfter(iter it, int newNode);
-    //void addAtBack(int newNode);
-    void deleteNode(iter it);
+    iter deleteNode(iter it);
    // void copyNode();
    // void removeDuplicate();
     iter begin();

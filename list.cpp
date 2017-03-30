@@ -69,11 +69,23 @@ mylist::iter mylist::addAfter(iter it, int newNode)
   size++;
   return it;
 };
-/*void mylist::addAtBack(int newNode){};
-void mylist::deleteNode(){};
-void mylist::getNode(){};
-void mylist::copyNode(){};
-void mylist::removeDuplicate(){};
+
+mylist::iter mylist::deleteNode(iter it)
+{
+  node * temp2 = it.refer;
+  node * temp1 = temp2->prev;
+  node * temp3 = temp2->next;
+  temp1->next=temp3;
+  temp3->prev=temp2;
+  if(head.refer == temp2) head.refer = temp3; //comment
+  if(tail.refer == temp2) tail.refer = temp1;
+  delete temp2;
+  it.refer=temp1;
+  size--;
+  return it;
+}
+
+/*
 
 mylist::node::ostream& operator<< (ostream &out, node const& ex)
 {
