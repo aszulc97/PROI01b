@@ -73,7 +73,16 @@ int main()
           it2=list1.getNode(chosenValue);
           list1.deleteNode(it2);
         }break;
-   // case '3': getElement(); break;
+      case '3':
+        {
+          int chosenValue;
+          mylist::iter it3;
+          cout<<"Podaj wartosc elementu, ktory chcesz zobaczyc: "; //obs³uga blêdów!
+          cin>>chosenValue;
+          it3=list1.getNode(chosenValue);
+          cout<<it3.refer->value<<endl;
+          Sleep(1000);
+        }break;
    // case '4': sumOfTwo(); break;
   //  case '5': differenceOfTwo(); break;
   //  case '6': copyElement(); break;

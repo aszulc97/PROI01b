@@ -16,9 +16,9 @@ class mylist
     };
     class iter
     {
-    public:
-      node * refer;
-      iter next(iter it);
+      public:
+        node * refer;
+        iter next(iter it);
     };
     mylist(int val); //constructor
     ~mylist(); //destructor
