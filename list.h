@@ -18,7 +18,7 @@ class mylist
     {
       public:
         node * refer;
-        iter next(iter it);
+        //iter next(iter it);
     };
     mylist(int val); //constructor
     ~mylist(); //destructor
@@ -29,11 +29,12 @@ class mylist
     iter deleteNode(iter it);
    // void copyNode();
    // void removeDuplicate();
-    iter begin();
-    iter end();
+   //iter begin();
+   // iter end();
     iter head;
     iter tail;
     int size;
 };
 
+void sumOfTwo(mylist::iter tail1, mylist::iter head, mylist::iter tail2);
 #endif // _LIST_H_

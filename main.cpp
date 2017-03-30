@@ -8,8 +8,7 @@ using namespace std;
 int main()
 {
   int first;
-  char choice;
-  char trig2=0;
+  char choice, trig1=1, trig2=0;
   cout<<"Podaj pierwszy element pierwszej listy"<<endl;
   cin>>first;
   mylist list1(first);
@@ -19,7 +18,7 @@ int main()
   do
   {
     system("cls");
-    list1.showContent(list1.head);
+    if(trig1) list1.showContent(list1.head);
     if(trig2) list2.showContent (list2.head);
     cout<<"MENU:"<<endl;
     cout<<"-------------------"<<endl;
@@ -27,7 +26,7 @@ int main()
     cout<<"2. Usun element z listy"<<endl;
     cout<<"3. Pobierz element z listy"<<endl;
     cout<<"4. Dodaj nowa liste"<<endl;
-    cout<<"5. Roznica dwoch list"<<endl;
+    cout<<"5. Zsumuj listy"<<endl;
     cout<<"6. Skopiuj element"<<endl;
     cout<<"7. Sprawdz rozmiar listy"<<endl;
     cout<<"8. Sprawdz rozmiar listy"<<endl;
@@ -40,32 +39,37 @@ int main()
     {
       case '1':
         {
-          char key, trig=0;
+          char key='o', listNumber;
           int newValue, chosenValue;
           mylist::iter it1;
-          while(trig==0)
+          while(listNumber!='1' && listNumber!='2')
           {
-            cout<<"Podaj wartosc nowego elementu: ";
-            cin>>newValue;
-            cout<<"Chcesz wstawic nowy element na poczatek listy? [t/n] ";
-            cin>>key;
-            key=tolower(key);
-            if (key=='t')
+            cout<<"Chcesz dodac element do listy 1 czy 2? Wpisz numer: ";
+            cin>>listNumber;
+            if (listNumber!='1' && listNumber!='2') cout<<"Nie ma takiego numeru!"<<endl;
+            else while(key!='t' && key!='n')
             {
-              trig=1;
-              list1.addAtFront(newValue);
+              cout<<"Podaj wartosc nowego elementu: ";
+              cin>>newValue;
+              cout<<"Chcesz wstawic nowy element na poczatek listy? [t/n] ";
+              cin>>key;
+              key=tolower(key);
+              if (key=='t')
+              {
+                if (listNumber=='1') list1.addAtFront(newValue);
+                else list2.addAtFront(newValue);
+              }
+              else if (key=='n')
+              {
+                cout<<"Podaj wartoœæ elementu, ZA ktorym chcesz wstawic nowy element: ";
+                cin>>chosenValue;
+                it1=list1.getNode(chosenValue);
+                if (listNumber=='1') list1.addAfter(it1,newValue);
+                else list2.addAfter(it1,newValue);
+              }
+              else cout<<"Sprobuj jeszcze raz"<<endl;
             }
-            else if (key=='n')
-            {
-              trig=1;
-              cout<<"Podaj wartoœæ elementu, ZA ktorym chcesz wstawic nowy element: ";
-              cin>>chosenValue;
-              it1=list1.getNode(chosenValue);
-              list1.addAfter(it1,newValue);
-            }
-            else cout<<"Sprobuj jeszcze raz"<<endl;
-            cout<<key;
-          }
+          } listNumber='0';
         }break;
       case '2':
         {
@@ -97,8 +101,32 @@ int main()
           cin>>first2;
           list2.addAtFront(first2);
         }break;
-
-  //  case '5': differenceOfTwo(); break;
+      case '5': //dodawanie nie tylko na koniec
+        {
+          char trig=0, key;
+          while(trig==0)
+          {
+            cout<<"Chcesz dodac:"<<endl;
+            cout<<"a. Pierwsza liste do drugiej"<<endl;
+            cout<<"b. Druga liste do pierwszej"<<endl;
+            cout<<"Wpisz a lub b: ";
+            cin>>key;
+            key=tolower(key);
+            if (key=='a')
+            {
+              trig=1;
+              trig1=0;
+              sumOfTwo(list2.tail, list1.head, list1.tail);
+            }
+            else if (key=='b')
+            {
+              trig=1;
+              trig2=0;
+              sumOfTwo(list1.tail, list2.head, list2.tail);
+            }
+            else cout<<"Sprobuj jeszcze raz"<<endl;
+          }
+        }break;
   //  case '6': copyElement(); break;
   //  case '7': removeDuplicates(); break;
       case '8':

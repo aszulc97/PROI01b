@@ -85,6 +85,11 @@ mylist::iter mylist::deleteNode(iter it)
   return it;
 }
 
+void sumOfTwo(mylist::iter tail1, mylist::iter head, mylist::iter tail2)
+{
+  tail1.refer->next=head.refer;
+  tail1=tail2;
+}
 /*
 
 mylist::node::ostream& operator<< (ostream &out, node const& ex)
