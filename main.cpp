@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <windows.h>
+#include <iomanip>
 #include "list.h"
 using namespace std;
 
@@ -8,22 +9,24 @@ int main()
 {
   int first;
   char choice;
-
-  cout<<"Podaj pierwszy element listy"<<endl;
+  char trig2=0;
+  cout<<"Podaj pierwszy element pierwszej listy"<<endl;
   cin>>first;
   mylist list1(first);
+  mylist list2(first);
   system("cls");
 
   do
   {
     system("cls");
     list1.showContent(list1.head);
+    if(trig2) list2.showContent (list2.head);
     cout<<"MENU:"<<endl;
     cout<<"-------------------"<<endl;
     cout<<"1. Dodaj element do listy"<<endl;
     cout<<"2. Usun element z listy"<<endl;
     cout<<"3. Pobierz element z listy"<<endl;
-    cout<<"4. Zsumuj dwie listy"<<endl;
+    cout<<"4. Dodaj nowa liste"<<endl;
     cout<<"5. Roznica dwoch list"<<endl;
     cout<<"6. Skopiuj element"<<endl;
     cout<<"7. Sprawdz rozmiar listy"<<endl;
@@ -83,7 +86,18 @@ int main()
           cout<<it3.refer->value<<endl;
           Sleep(1000);
         }break;
-   // case '4': sumOfTwo(); break;
+      case '4':
+        {
+          mylist::iter it4;
+          int first2;
+          trig2=1;
+          it4=list2.getNode(first);
+          list2.deleteNode(it4);
+          cout<<"Podaj wartosc pierwszego elementu drugiej listy: ";
+          cin>>first2;
+          list2.addAtFront(first2);
+        }break;
+
   //  case '5': differenceOfTwo(); break;
   //  case '6': copyElement(); break;
   //  case '7': removeDuplicates(); break;
