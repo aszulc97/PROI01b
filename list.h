@@ -2,6 +2,8 @@
 #define _LIST_H_
 #include <iostream>
 
+void gotoxy(int x,int y);
+
 class mylist
 {
   public:
@@ -14,7 +16,7 @@ class mylist
         node * next;
         node * prev;
     };
-    class iter
+    class iter //contains reference to an element
     {
       public:
         node * refer;

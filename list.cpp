@@ -1,7 +1,14 @@
 #include <iostream>
+#include <windows.h>
 #include "list.h"
 
 using namespace std;
+
+/*void gotoxy( int x, int y )
+{
+  COORD p = { x, y };
+  SetConsoleCursorPosition( GetStdHandle( STD_OUTPUT_HANDLE ), p ); //decyzja
+}*/
 
 mylist::mylist(int val)
 {
@@ -19,12 +26,13 @@ mylist::~mylist() {};
 
 void mylist::showContent(iter head)
 {
+  //TODO: obok siebie
   iter current=head;
-
   cout<<"Zawartosc listy:"<<endl;
   cout<<"---------------------------"<<endl;
   for (int i=0; i<size; i++)
   {
+    //gotoxy(300,200);
     cout << "Id:\t" << current.refer->id << "\nLiczba:\t" << current.refer->value << "\n\n";
     current.refer=current.refer->next;
   }
@@ -87,6 +95,7 @@ mylist::iter mylist::deleteNode(iter it)
 
 void sumOfTwo(mylist::iter tail1, mylist::iter head, mylist::iter tail2)
 {
+  #warning TODO: sumowanie list petla
   tail1.refer->next=head.refer;
   tail1=tail2;
 }

@@ -21,7 +21,7 @@ int main()
     if(trig1) list1.showContent(list1.head);
     if(trig2) list2.showContent (list2.head);
     cout<<"MENU:"<<endl;
-    cout<<"-------------------"<<endl;
+    cout<<"---------------------"<<endl;
     cout<<"1. Dodaj element do listy"<<endl;
     cout<<"2. Usun element z listy"<<endl;
     cout<<"3. Pobierz element z listy"<<endl;
@@ -71,19 +71,40 @@ int main()
             }
           } listNumber='0';
         }break;
-      case '2':
+        #warning TODO: usuwanie kilku elementow z zakresu
+      case '2':  //usuwanie z zakresu
         {
+          char listNumber;
           int chosenValue;
           mylist::iter it2;
-          cout<<"Podaj wartosc elementu, ktory chcesz usunac: "; //obs³uga blêdów!
-          cin>>chosenValue;
-          it2=list1.getNode(chosenValue);
-          list1.deleteNode(it2);
+          cout<<"Chcesz usunac element z listy 1 czy 2? Wpisz numer: ";
+          cin>>listNumber;
+          if (listNumber!='1' && listNumber!='2') cout<<"Nie ma takiego numeru!"<<endl;
+            else
+            {
+              cout<<"Podaj wartosc elementu, ktory chcesz usunac: "; //obs³uga blêdów!
+              cin>>chosenValue;
+              if (listNumber==1)
+              {
+                it2=list1.getNode(chosenValue);
+                list1.deleteNode(it2);
+              }
+              else
+              {
+                it2=list2.getNode(chosenValue);
+                list2.deleteNode(it2);
+              }
+            }
         }break;
+#warning TODO: cout "Chcesz" when there's no second list
       case '3':
         {
           int chosenValue;
           mylist::iter it3;
+          cout<<"Chcesz zobaczyc element z listy 1 czy 2? Wpisz numer: ";
+          cin>>listNumber;
+            if (listNumber!='1' && listNumber!='2') cout<<"Nie ma takiego numeru!"<<endl;
+            else
           cout<<"Podaj wartosc elementu, ktory chcesz zobaczyc: "; //obs³uga blêdów!
           cin>>chosenValue;
           it3=list1.getNode(chosenValue);
@@ -131,8 +152,9 @@ int main()
   //  case '7': removeDuplicates(); break;
       case '8':
         {
-          cout<<list1.size;
-          Sleep(1000);
+          if (trig1) cout<<"Rozmiar listy pierwszej: "<<list1.size<<endl;
+          if (trig2) cout<<"Rozmiar listy drugiej: "<<list2.size<<endl;
+          Sleep(2000);
         }break;
   //  case '9': comparisonOfTwo(); break;
       case 'q':break;
