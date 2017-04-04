@@ -22,7 +22,16 @@ mylist::mylist(int val)
   size=1;
 }
 
-mylist::~mylist() {};
+mylist::~mylist()
+{
+  node* temp;
+  while (head.refer != NULL)
+    {
+      temp = head.refer->next;
+      delete head.refer;
+      head.refer = temp;
+    }
+} //TODO: czy nie powinnam usuwac tez itera??
 
 void mylist::showContent(iter head)
 {
@@ -93,11 +102,20 @@ mylist::iter mylist::deleteNode(iter it)
   return it;
 }
 
-void sumOfTwo(mylist::iter tail1, mylist::iter head, mylist::iter tail2)
+void mylist::sumOfTwo(mylist::iter tail, mylist::iter head, int sizeOfAddedList)
 {
   #warning TODO: sumowanie list petla
-  tail1.refer->next=head.refer;
-  tail1=tail2;
+  int i;
+  node * temp1 = tail.refer;
+  node * temp2 = head.refer;
+  for(i=0; i<sizeOfAddedList; i++)
+  {
+    temp1->next=temp2;
+    temp2->prev=temp1;
+    temp1=temp2;
+    temp2=temp2->next;
+    size++;
+  } //while(temp2->next!=temp2);
 }
 /*
 

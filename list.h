@@ -29,6 +29,7 @@ class mylist
     iter addAtFront(int newNode);
     iter addAfter(iter it, int newNode);
     iter deleteNode(iter it);
+    void sumOfTwo(iter tail, iter head, int sizeOfAddedList);
    // void copyNode();
    // void removeDuplicate();
    //iter begin();
@@ -38,5 +39,5 @@ class mylist
     int size;
 };
 
-void sumOfTwo(mylist::iter tail1, mylist::iter head, mylist::iter tail2);
+
 #endif // _LIST_H_

@@ -71,8 +71,8 @@ int main()
             }
           } listNumber='0';
         }break;
-        #warning TODO: usuwanie kilku elementow z zakresu
-      case '2':  //usuwanie z zakresu
+        //TODO: usuwanie kilku elementow z zakresu
+      case '2':  //TODO: usuwanie z zakresu
         {
           char listNumber;
           int chosenValue;
@@ -96,9 +96,10 @@ int main()
               }
             }
         }break;
-#warning TODO: cout "Chcesz" when there's no second list
+//TODO: cout "Chcesz" when there's no second list
       case '3':
         {
+          char listNumber;
           int chosenValue;
           mylist::iter it3;
           cout<<"Chcesz zobaczyc element z listy 1 czy 2? Wpisz numer: ";
@@ -122,7 +123,7 @@ int main()
           cin>>first2;
           list2.addAtFront(first2);
         }break;
-      case '5': //dodawanie nie tylko na koniec
+      case '5': //TODO: dodawanie nie tylko na koniec
         {
           char trig=0, key;
           while(trig==0)
@@ -137,13 +138,15 @@ int main()
             {
               trig=1;
               trig1=0;
-              sumOfTwo(list2.tail, list1.head, list1.tail);
+              list2.sumOfTwo(list2.tail, list1.head, list1.size);
+              //~list1();
             }
             else if (key=='b')
             {
               trig=1;
               trig2=0;
-              sumOfTwo(list1.tail, list2.head, list2.tail);
+              list1.sumOfTwo(list1.tail, list2.head, list2.size);
+              //~list2();
             }
             else cout<<"Sprobuj jeszcze raz"<<endl;
           }
