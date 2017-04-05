@@ -24,13 +24,13 @@ mylist::mylist(int val)
 
 mylist::~mylist()
 {
-  node* temp;
+  /*node* temp;
   while (head.refer != NULL)
     {
       temp = head.refer->next;
       delete head.refer;
       head.refer = temp;
-    }
+    }*/ //TODO: destruktor nie pozwala programowi sie zamknac
 } //TODO: czy nie powinnam usuwac tez itera??
 
 void mylist::showContent(iter head)
@@ -42,7 +42,7 @@ void mylist::showContent(iter head)
   for (int i=0; i<size; i++)
   {
     //gotoxy(300,200);
-    cout << "Id:\t" << current.refer->id << "\nLiczba:\t" << current.refer->value << "\t";
+    cout << "Id:\t" << current.refer->id << "\nLiczba:\t" << current.refer->value << "\n";
     current.refer=current.refer->next;
   }
   cout<<"\n---------------------------"<<endl;

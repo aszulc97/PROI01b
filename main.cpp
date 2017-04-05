@@ -161,10 +161,9 @@ int main()
           Sleep(2000);
         }break;
   //  case '9': comparisonOfTwo(); break;
-      case 'q': cout<<"LOL"; break;
+      case 'q': break;
       default: cout<<"Sprobuj ponownie"; break;
     }
   } while (choice!='q');
-  cout<<"kek";
     return 0;
 }
