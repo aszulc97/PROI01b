@@ -61,7 +61,7 @@ int main()
               }
               else if (key=='n')
               {
-                cout<<"Podaj wartoœæ elementu, ZA ktorym chcesz wstawic nowy element: ";
+                cout<<"Podaj wartosc elementu, ZA ktorym chcesz wstawic nowy element: ";
                 cin>>chosenValue;
                 it1=list1.getNode(chosenValue);
                 if (listNumber=='1') list1.addAfter(it1,newValue);
@@ -154,7 +154,60 @@ int main()
             else cout<<"Sprobuj jeszcze raz"<<endl;
           }
         }break;
-  //  case '6': copyElement(); break;
+      case '6':
+      {
+        int chosenValue, elementBefore;
+        char trig=0, key, key2;
+        mylist::iter it1;
+          //while(trig==0)
+          //{
+            cout<<"Chcesz skopiowac element z:"<<endl;
+            cout<<"a. Pierwszej listy"<<endl;
+            cout<<"b. Drugiej listy"<<endl;
+            cout<<"Wpisz a lub b: ";
+            cin>>key;
+            key=tolower(key);
+
+            cout<<"Podaj wartosc elementu, ktory chcesz skopiowac: "; //obs³uga blêdów!
+            cin>>chosenValue;
+
+            if (key=='a') list1.getNode(chosenValue);
+            else if (key=='b') list2.getNode(chosenValue);
+            else cout<<"Sprobuj jeszcze raz"<<endl;
+
+            cout<<"A teraz chcesz go wkleic do..."<<endl;
+            cout<<"a. Pierwszej listy"<<endl;
+            cout<<"b. Drugiej listy"<<endl;
+            cout<<"Wpisz a lub b: ";
+            cin>>key;
+            key=tolower(key);
+
+            cout<<"Chcesz wstawic skopiowany element na poczatek listy? [t/n] ";
+              cin>>key2;
+              key2=tolower(key2);
+              if (key2=='t')
+              {
+                if (key=='a') list1.addAtFront(chosenValue);
+                else list2.addAtFront(chosenValue);
+              }
+              else if (key2=='n')
+              {
+                cout<<"Podaj wartosc elementu, ZA ktorym chcesz wstawic nowy element: ";
+                cin>>elementBefore;
+                if (key=='a')
+                {
+                  it1=list1.getNode(elementBefore);
+                  list1.addAfter(it1,chosenValue);
+                }
+                else
+                {
+                  it1=list2.getNode(elementBefore);
+                  list2.addAfter(it1,chosenValue);
+                }
+              }
+              else cout<<"Sprobuj jeszcze raz"<<endl;
+         // }
+      }break;
   //  case '7': removeDuplicates(); break;
       case '8':
         {
