@@ -34,7 +34,6 @@ int main()
     cout<<"--------------------"<<endl;
     cout<<"Twoj wybor: ";
     cin>>choice;
-    cout<<"\n"<<choice<<endl;
 
     switch(choice)
     {
@@ -85,7 +84,7 @@ int main()
             {
               cout<<"Podaj wartosc elementu, ktory chcesz usunac: "; //obs³uga blêdów!
               cin>>chosenValue;
-              if (listNumber==1)
+              if (listNumber=='1')
               {
                 it2=list1.getNode(chosenValue);
                 list1.deleteNode(it2);
@@ -107,10 +106,13 @@ int main()
           cin>>listNumber;
             if (listNumber!='1' && listNumber!='2') cout<<"Nie ma takiego numeru!"<<endl;
             else
-          cout<<"Podaj wartosc elementu, ktory chcesz zobaczyc: "; //obs³uga blêdów!
-          cin>>chosenValue;
-          it3=list1.getNode(chosenValue);
-          cout<<it3.refer->value<<endl;
+            {
+              cout<<"Podaj wartosc elementu, ktory chcesz zobaczyc: "; //obs³uga blêdów!
+              cin>>chosenValue;
+              if (listNumber=='1') it3=list1.getNode(chosenValue);
+              else it3=list2.getNode(chosenValue);
+              cout<<it3.refer->value<<endl;
+            }
           Sleep(1000);
         }break;
       case '4':

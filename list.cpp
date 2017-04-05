@@ -14,7 +14,7 @@ mylist::mylist(int val)
 {
   node * temp = new node;
   temp->value=val;
-  temp->id=1;
+  //temp->id=1;
   temp->next=temp;
   temp->prev=temp;
   head.refer=temp;
@@ -41,11 +41,12 @@ void mylist::showContent(iter head)
   cout<<"---------------------------"<<endl;
   for (int i=0; i<size; i++)
   {
+    current.refer->id=i+1;
     //gotoxy(300,200);
-    cout << "Id:\t" << current.refer->id << "\nLiczba:\t" << current.refer->value << "\n";
+    cout << "Id: " << current.refer->id << "\tLiczba: " << current.refer->value << "\tIlosc dostepow: " << current.refer->access << "\n";
     current.refer=current.refer->next;
   }
-  cout<<"\n---------------------------"<<endl;
+  cout<<"---------------------------"<<endl;
 }
 
 mylist::iter mylist::getNode(int val)
@@ -57,13 +58,14 @@ mylist::iter mylist::getNode(int val)
     if (x==val) break;
     else it.refer = it.refer->next;
   }
+  it.refer->access++;
   return it;
 };
 mylist::iter mylist::addAtFront(int newNode)
 {
   node * temp2 = new node;
   node * temp3 = head.refer;
-  temp2->id=2;
+  //temp2->id=2;
   temp2->value=newNode;
   temp2->next=temp3;
   temp2->prev=temp2;
@@ -76,7 +78,7 @@ mylist::iter mylist::addAfter(iter it, int newNode)
   node * temp1 = it.refer;
   node * temp2 = new node;
   node * temp3 = temp1->next;
-  temp2->id=2;
+  //temp2->id=2;
   temp2->value=newNode;
   temp2->next=temp3;
   temp2->prev=temp1;

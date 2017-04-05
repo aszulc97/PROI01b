@@ -12,7 +12,7 @@ class mylist
       public:
         int value;
         int id;
-        int access;
+        int access=0;
         node * next;
         node * prev;
     };
