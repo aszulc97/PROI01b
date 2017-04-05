@@ -42,10 +42,10 @@ void mylist::showContent(iter head)
   for (int i=0; i<size; i++)
   {
     //gotoxy(300,200);
-    cout << "Id:\t" << current.refer->id << "\nLiczba:\t" << current.refer->value << "\n\n";
+    cout << "Id:\t" << current.refer->id << "\nLiczba:\t" << current.refer->value << "\t";
     current.refer=current.refer->next;
   }
-  cout<<"---------------------------"<<endl;
+  cout<<"\n---------------------------"<<endl;
 }
 
 mylist::iter mylist::getNode(int val)
@@ -117,6 +117,27 @@ void mylist::sumOfTwo(mylist::iter tail, mylist::iter head, int sizeOfAddedList)
     size++;
   } //while(temp2->next!=temp2);
 }
+
+/*void difference(mylist::iter head1, mylist::iter head2, int sizeOfAddedList)
+{
+  iter it1 = head1;
+  iter it2 = head2;
+  for (int i=0; i<size; i++)
+  {
+    for (int j=0; j<sizeOfAddedList; j++)
+    {
+      int x = it1.refer->value;
+      int y = it2.refer->value;
+      if (x==y)
+      {
+        it1=mylist::deleteNode(it1);
+        it1.refer=it1.refer->next;
+        break;
+      }
+      else it2.refer = it2.refer->next;
+    }
+  }
+}*/
 /*
 
 mylist::node::ostream& operator<< (ostream &out, node const& ex)

@@ -29,7 +29,8 @@ class mylist
     iter addAtFront(int newNode);
     iter addAfter(iter it, int newNode);
     iter deleteNode(iter it);
-    void sumOfTwo(iter tail, iter head, int sizeOfAddedList);
+    void sumOfTwo(iter tail, iter head, int sizeOfAddedList); //TODO:jesli funkcja jest czescia klasy lista to chyba nie potrzebuje miec wskazanego taila tej listy
+    void difference(iter head1, iter head2, int sizeOfAddedList);
    // void copyNode();
    // void removeDuplicate();
    //iter begin();

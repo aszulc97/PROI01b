@@ -34,6 +34,7 @@ int main()
     cout<<"--------------------"<<endl;
     cout<<"Twoj wybor: ";
     cin>>choice;
+    cout<<"\n"<<choice<<endl;
 
     switch(choice)
     {
@@ -160,9 +161,10 @@ int main()
           Sleep(2000);
         }break;
   //  case '9': comparisonOfTwo(); break;
-      case 'q':break;
+      case 'q': cout<<"LOL"; break;
       default: cout<<"Sprobuj ponownie"; break;
     }
   } while (choice!='q');
+  cout<<"kek";
     return 0;
 }
