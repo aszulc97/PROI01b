@@ -31,13 +31,16 @@ class mylist
     iter deleteNode(iter it);
     void sumOfTwo(iter tail, iter head, int sizeOfAddedList); //TODO:jesli funkcja jest czescia klasy lista to chyba nie potrzebuje miec wskazanego taila tej listy
     void difference(iter head1, iter head2, int sizeOfAddedList);
-   // void copyNode();
+    void compareLists(iter head1, iter head2, int sizeOfSecondList);
    // void removeDuplicate();
-   //iter begin();
-   // iter end();
     iter head;
     iter tail;
     int size;
+
+    iter operator+ (const int value);
+   // iter operator+= (const iter it, const int value);
+    iter operator- (const iter it);
+    iter operator> (const int value);
 };
 
 

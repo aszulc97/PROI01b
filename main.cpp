@@ -9,7 +9,7 @@ int main()
 {
   int first;
   char choice, trig1=1, trig2=0;
-  cout<<"Podaj pierwszy element pierwszej listy"<<endl;
+  cout<<"Podaj pierwszy element pierwszej listy: ";
   cin>>first;
   mylist list1(first);
   mylist list2(first);
@@ -28,7 +28,7 @@ int main()
     cout<<"4. Dodaj nowa liste"<<endl;
     cout<<"5. Zsumuj listy"<<endl;
     cout<<"6. Skopiuj element"<<endl;
-    cout<<"7. Sprawdz rozmiar listy"<<endl;
+    cout<<"7. Porownaj listy"<<endl;
     cout<<"8. Sprawdz rozmiar listy"<<endl;
     cout<<"Wcisnij q, aby zakonczyc"<<endl;
     cout<<"--------------------"<<endl;
@@ -56,14 +56,14 @@ int main()
               key=tolower(key);
               if (key=='t')
               {
-                if (listNumber=='1') list1.addAtFront(newValue);
-                else list2.addAtFront(newValue);
+                if (listNumber=='1') list1+newValue;
+                else list2+newValue;
               }
               else if (key=='n')
               {
                 cout<<"Podaj wartosc elementu, ZA ktorym chcesz wstawic nowy element: ";
                 cin>>chosenValue;
-                it1=list1.getNode(chosenValue);
+                it1=list1>chosenValue;
                 if (listNumber=='1') list1.addAfter(it1,newValue);
                 else list2.addAfter(it1,newValue);
               }
@@ -86,13 +86,13 @@ int main()
               cin>>chosenValue;
               if (listNumber=='1')
               {
-                it2=list1.getNode(chosenValue);
-                list1.deleteNode(it2);
+                it2=list1>chosenValue;
+                list1-it2;
               }
               else
               {
-                it2=list2.getNode(chosenValue);
-                list2.deleteNode(it2);
+                it2=list2>chosenValue;
+                list2-it2;
               }
             }
         }break;
@@ -109,8 +109,8 @@ int main()
             {
               cout<<"Podaj wartosc elementu, ktory chcesz zobaczyc: "; //obs³uga blêdów!
               cin>>chosenValue;
-              if (listNumber=='1') it3=list1.getNode(chosenValue);
-              else it3=list2.getNode(chosenValue);
+              if (listNumber=='1') it3=list1>chosenValue;
+              else it3=list2>chosenValue;
               cout<<it3.refer->value<<endl;
             }
           Sleep(1000);
@@ -120,11 +120,11 @@ int main()
           mylist::iter it4;
           int first2;
           trig2=1;
-          it4=list2.getNode(first);
-          list2.deleteNode(it4);
+          it4=list2>first;
+          list2-it4;
           cout<<"Podaj wartosc pierwszego elementu drugiej listy: ";
           cin>>first2;
-          list2.addAtFront(first2);
+          list2+first2;
         }break;
       case '5': //TODO: dodawanie nie tylko na koniec
         {
@@ -171,8 +171,8 @@ int main()
             cout<<"Podaj wartosc elementu, ktory chcesz skopiowac: "; //obs³uga blêdów!
             cin>>chosenValue;
 
-            if (key=='a') list1.getNode(chosenValue);
-            else if (key=='b') list2.getNode(chosenValue);
+            if (key=='a') list1>chosenValue;
+            else if (key=='b') list2>chosenValue;
             else cout<<"Sprobuj jeszcze raz"<<endl;
 
             cout<<"A teraz chcesz go wkleic do..."<<endl;
@@ -187,8 +187,8 @@ int main()
               key2=tolower(key2);
               if (key2=='t')
               {
-                if (key=='a') list1.addAtFront(chosenValue);
-                else list2.addAtFront(chosenValue);
+                if (key=='a') list1+chosenValue;
+                else list2+chosenValue;
               }
               else if (key2=='n')
               {
@@ -196,19 +196,22 @@ int main()
                 cin>>elementBefore;
                 if (key=='a')
                 {
-                  it1=list1.getNode(elementBefore);
+                  it1=list1>elementBefore;
                   list1.addAfter(it1,chosenValue);
                 }
                 else
                 {
-                  it1=list2.getNode(elementBefore);
+                  it1=list2>elementBefore;
                   list2.addAfter(it1,chosenValue);
                 }
               }
               else cout<<"Sprobuj jeszcze raz"<<endl;
          // }
       }break;
-  //  case '7': removeDuplicates(); break;
+      case '7':
+        {
+          list1.compareLists(list1.head, list2.head, list2.size);
+        }break;
       case '8':
         {
           if (trig1) cout<<"Rozmiar listy pierwszej: "<<list1.size<<endl;

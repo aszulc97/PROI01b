@@ -140,10 +140,45 @@ void mylist::sumOfTwo(mylist::iter tail, mylist::iter head, int sizeOfAddedList)
     }
   }
 }*/
-/*
 
-mylist::node::ostream& operator<< (ostream &out, node const& ex)
+void mylist::compareLists(mylist::iter head1, mylist::iter head2, int sizeOfSecondList)
 {
-  out << ex.id << "   " << ex.value << "   " << ex.access;
-  return out;
+  node * front1 = head1.refer;
+  node * front2 = head2.refer;
+  int i=0, trig;
+  while(trig==0)
+  {
+   // cout<<front1->value<<endl;
+   // cout<<front2->value;
+    if (front1->value!=front2->value) trig=1;
+    else
+    {
+      front1=front1->next;
+      front2=front2->next;
+      i++;
+    }
+    if (i==size || i==sizeOfSecondList) trig=2;
+  }
+  if (trig=1) cout<<"Listy sa rozne";
+  else cout<<"Listy sa takie same";
+  Sleep(3000);
+}
+mylist::iter mylist::operator+ (const int value)
+{
+  return addAtFront(value);
+}
+
+/*mylist::iter mylist::operator+= (const mylist::iter it, const int value)
+{
+  return addAfter(it, value);
 }*/
+
+mylist::iter mylist::operator- (const mylist::iter it)
+{
+  return deleteNode(it);
+}
+
+mylist::iter mylist::operator> (const int value)
+{
+  return getNode(value);
+}
